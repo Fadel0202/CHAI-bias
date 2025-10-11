@@ -36,7 +36,7 @@ plt.xticks(rotation=45)
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-plot_path = 'data/bias_pos_visualization.png'
+plot_path = 'figures/bias_pos_visualization.png'
 plt.savefig(plot_path, dpi=300, bbox_inches="tight")
 
 plt.show()

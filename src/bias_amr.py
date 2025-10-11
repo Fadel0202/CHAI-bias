@@ -117,5 +117,5 @@ plt.title("Relations to 'bias' (Parent Links)")
 plt.xticks(rotation=45)
 plt.ylabel("Frequency")
 
-plot_path = 'data/bias_amr.png'
+plot_path = 'figures/bias_amr.png'
 plt.savefig(plot_path, dpi=300, bbox_inches="tight")

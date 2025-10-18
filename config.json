@@ -1,7 +1,7 @@
 {
     "txt_path": "/home/ambroise012/CHAI-bias/mapaie/data/txts",
     "MapAIE_csv_path": "bias-MapAIE.csv",
-    "amr_path": "mapaie/key_penmans.amr",
+    "amr_path": "data/bias_AMR-500_clean.amr",
     "log_level": "debug"
   }
   

@@ -1,5 +1,5 @@
 from penman import load
-from penman import load
+from collections import defaultdict
 import matplotlib.pyplot as plt
 from collections import Counter
 
@@ -17,17 +17,24 @@ with open(amr_file, "r", encoding="utf-8") as f:
     amr_graphs = list(load(f))
 
 # Extract concepts containing "bias"
-bias_concepts = set()
-
+bias_concepts = defaultdict(int)
 for graph in amr_graphs:
     for triple in graph.triples:
-        # triple = (source, relation, target)
         if triple[1] == ':instance' and triple[2] and 'bias' in triple[2].lower():
-            bias_concepts.add(triple[2].lower())
+            bias_concepts[triple[2].lower()] += 1
 
-bias_concepts = sorted(bias_concepts)
-print(f"Concepts related to 'bias' in AMR: {bias_concepts}")
-
+#distibution de bias et bias-01
+sorted_bias_concepts = sorted(bias_concepts.items(), key=lambda x: x[1], reverse=True)
+concepts, counts = zip(*sorted_bias_concepts) if sorted_bias_concepts else ([], [])
+# concepts, counts = zip(*bias_concepts)
+plt.figure(figsize=(5, 6))
+plt.bar(concepts, counts, color='skyblue')
+plt.xlabel('Concepts related to "bias"')
+plt.ylabel('Frequency')
+plt.title('Histogram of concepts related to "bias" in AMR')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+plt.savefig("figures/hist_concept.png", dpi=300, bbox_inches="tight")
 
 def analyze_bias_structure(graph):
     """Return structure info for nodes related to bias or bias-01."""
@@ -112,7 +119,10 @@ print(f"\nGraphs with polarity markers: {summary['graphs_with_polarity']}")
 
 
 plt.figure(figsize=(6,4))
-plt.bar(summary["relations_to_bias"].keys(), summary["relations_to_bias"].values())
+relations_to_bias = summary["relations_to_bias"]
+sorted_relations = sorted(relations_to_bias.items(), key=lambda x: x[1], reverse=True)
+relations, counts = zip(*sorted_relations)
+plt.bar(relations, counts)
 plt.title("Relations to 'bias' (Parent Links)")
 plt.xticks(rotation=45)
 plt.ylabel("Frequency")

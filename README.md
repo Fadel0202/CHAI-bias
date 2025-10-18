@@ -110,18 +110,3 @@ CHAI-bias/
 └── README.md
 ```
 
----
-
-## 🧾 Outputs Summary
-
-| Step | Description            | Output File                  |
-| ---- | ---------------------- | ---------------------------- |
-| 1    | Extract bias sentences | `bias-MapAIE.csv`            |
-| 2    | Bias analysis plots    | `bias_analysis_subplot.png`  |
-| 3    | Word frequency plot    | `word_frequency.png`         |
-| 4    | POS visualization      | `bias_pos_visualisation.png` |
-| 5    | AMR structural bias    | `bias_amr.png`               |
-
----
-
-Would you like me to make it **more formal and research-paper style** (for publication/code release), or **more practical and developer-oriented** (for contributors)? I can tailor the tone accordingly.

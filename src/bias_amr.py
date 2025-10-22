@@ -66,17 +66,6 @@ def analyze_bias_structure(graph):
         })
     return structures
 
-
-for i, graph in enumerate(amr_graphs):
-    structures = analyze_bias_structure(graph)
-    if structures:
-        print(f"\n--- Graph {i+1} ---")
-        for s in structures:
-            print(f"Node: {s['node']} (root={s['is_root']})")
-            print(f"  Parents: {s['parents']}")
-            print(f"  Siblings: {s['siblings']}")
-            print(f"  Children: {s['children']}")
-
 summary = {
     "root_count": 0,
     "non_root_count": 0,
@@ -105,8 +94,8 @@ for i, graph in enumerate(amr_graphs):
                 if rel == ":polarity":
                     summary["graphs_with_polarity"].append(i+1)
 
-# --- Print results ---
-print("\n=== Summary of 'bias' structures ===")
+
+print("\n=== Summary of bias structures ===")
 print(f"Root occurrences: {summary['root_count']}")
 print(f"Non-root occurrences: {summary['non_root_count']}")
 print("\nRelations to 'bias' (parents):")

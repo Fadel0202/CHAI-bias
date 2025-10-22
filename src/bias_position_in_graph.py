@@ -74,7 +74,6 @@ for i, graph in enumerate(amr_graphs):
             print(f"  Siblings: {s['siblings']}")
             print(f"  Children: {s['children']}")
 
-# --- Summary statistics ---
 summary = {
     "root_count": 0,
     "node_count": 0,
@@ -105,12 +104,6 @@ for graph in amr_graphs:
             if src == node:
                 summary["relations_from_bias"][rel] += 1
 
-# --- Print summary ---
-print("\n=== Summary of 'bias' Structures ===")
-print(f"Root occurrences: {summary['root_count']}")
-print(f"Internal node occurrences: {summary['node_count']}")    
-print(f"Leaf occurrences: {summary['leaf_count']}")
-
 print("\nRelations TO 'bias' (Parent → Bias):")
 for rel, count in summary["relations_to_bias"].most_common():
     print(f"  {rel}: {count}")
@@ -119,7 +112,7 @@ print("\nRelations FROM 'bias' (Bias → Child):")
 for rel, count in summary["relations_from_bias"].most_common():
     print(f"  {rel}: {count}")
 
-# --- Plot parent relations ---
+# --- parent relations ---
 plt.figure(figsize=(6, 4))
 relations_to_bias = summary["relations_to_bias"]
 if relations_to_bias:
@@ -132,7 +125,7 @@ if relations_to_bias:
     plt.tight_layout()
     plt.savefig("figures/relations_to_bias.png", dpi=300, bbox_inches="tight")
 
-# --- Plot child relations ---
+# --- child relations ---
 plt.figure(figsize=(6, 4))
 relations_from_bias = summary["relations_from_bias"]
 if relations_from_bias:

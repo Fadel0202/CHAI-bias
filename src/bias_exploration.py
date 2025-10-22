@@ -8,7 +8,6 @@ from nltk.corpus import stopwords
 import nltk
 from src.config import cfg
 
-# --- Setup ---
 nltk.download("stopwords", quiet=True)
 stop_words = set(stopwords.words("english"))
 
@@ -120,7 +119,6 @@ output_path = os.path.join(output_dir, "bias_analysis_subplots.png")
 plt.savefig(output_path, dpi=300, bbox_inches="tight")
 plt.close()
 
-# --- Print summaries ---
 print("\nTop collocations with 'bias':")
 for ng, freq in top_ngrams:
     print(f"  {ng}: {freq}")

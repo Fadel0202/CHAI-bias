@@ -1,5 +1,4 @@
 import os
-import string
 import re
 from collections import Counter
 import matplotlib.pyplot as plt
@@ -57,5 +56,3 @@ os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, "word_frequency.png")
 plt.savefig(output_path, dpi=300, bbox_inches="tight")
 plt.close()
-
-print(f"\nGraph saved to: {output_path}")

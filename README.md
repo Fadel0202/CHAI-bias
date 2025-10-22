@@ -1,4 +1,4 @@
-# 🧠 CHAI Bias
+# IA 717: CHAI & bias: linguistics of AI ethics charters & manifestos
 
 A toolkit for exploring and visualizing linguistic bias in text and AMR (Abstract Meaning Representation) data.
 
@@ -37,19 +37,23 @@ https://gitlab.telecom-paris.fr/tiphaine.viard/mapaie
 ### **Part 1: CSV and TXT Processing**
 
 1. **Create CSV from text files**
-   Extract all sentences containing bias-related words and save them to a CSV file:
+   Extract all sentences containing bias-related words and save them to a CSV file:\
+   File: `create_csv_sentence.py`
    → Output: `bias-MapAIE.csv`
 
 2. **Bias Exploration**
-   Visualize bias distribution and patterns across the dataset:
+   Visualize bias distribution and patterns across the dataset:\
+   File: `bais_exploration.py`
    → Output: `bias_analysis_subplot.png`
 
 3. **Word Frequency Analysis**
-   Explore frequency of bias-related words:
+   Explore frequency of bias-related words:\
+   File: `data_exploration.py`
    → Output: `word_frequency.png`
 
 4. **POS Tag Visualization**
-   Analyze part-of-speech patterns associated with biased words:
+   Analyze part-of-speech patterns associated with biased words:\
+   File: `bias_pos_tag.py`
    → Output: `bias_pos_visualisation.png`
 
 ---
@@ -57,11 +61,13 @@ https://gitlab.telecom-paris.fr/tiphaine.viard/mapaie
 ### **Part 2: AMR Analysis**
 
 5. **AMR Structure Exploration**
-   Investigate structural bias representation within AMR graphs:
-   → Output: `bias_amr.png`
+   Investigate structural bias representation within AMR graphs:\
+   File: `bias_amr.py`
+   → Output: summary of bias structure + `hist_concept.png` + `bias_amr.png`
 
 6. **Bias Position in Graphs**
-   Identify relationships from/to bias-related nodes in the AMR graph.
+   Identify relationships from/to bias-related nodes in the AMR graph.\
+   → Output: count relation TO / FROM bias + `relations_to_bias.png` + `relations_from_bias.png` 
 
 ---
 
@@ -91,9 +97,10 @@ CHAI-bias/
 │
 ├── data/
 │   ├── bias-AMR-500_clean.amr
-│   └── bias-MapAIE.csv
+│   └── bias-MapAIE.csv       # created with create_csv_sentence.py
 │
-├── mapaie/
+├── mapaie/                   # clone from gitlab tiphaine.viard/mapaie
+|   ├── ...
 │   ├── docs/
 │   └── txts/
 │
@@ -103,25 +110,6 @@ CHAI-bias/
 │   ├── bias_amr.py
 │   └── ...
 │
-├── notebooks/
-│   └── bias_analysis.ipynb
-│
 ├── config.json
 └── README.md
 ```
-
----
-
-## 🧾 Outputs Summary
-
-| Step | Description            | Output File                  |
-| ---- | ---------------------- | ---------------------------- |
-| 1    | Extract bias sentences | `bias-MapAIE.csv`            |
-| 2    | Bias analysis plots    | `bias_analysis_subplot.png`  |
-| 3    | Word frequency plot    | `word_frequency.png`         |
-| 4    | POS visualization      | `bias_pos_visualisation.png` |
-| 5    | AMR structural bias    | `bias_amr.png`               |
-
----
-
-Would you like me to make it **more formal and research-paper style** (for publication/code release), or **more practical and developer-oriented** (for contributors)? I can tailor the tone accordingly.
